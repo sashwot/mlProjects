@@ -22,7 +22,7 @@ class DataIngestion:
             df = pd.read_csv('/Users/sashwotkoirala/Desktop/MDS/Prep/ML/mlProjects/notebook/dataVII.csv')
             df = df.drop(index=df.index[0]).reset_index(drop=True)
             logging.info('Read the dataset as dataframe')
-            os.makedirs(self.ingestion_congfig.train_data_path)
+            #os.makedirs(self.ingestion_congfig.train_data_path)
             os.makedirs(os.path.dirname(self.ingestion_config.train_data_path),exist_ok=True)
             df.to_csv(self.ingestion_congfig.raw_data_path, index=False, header=True)
             logging.info('Train Test Split initiated')
@@ -36,11 +36,12 @@ class DataIngestion:
             )
 
         except Exception as e:
-            pass
+            pass 
 
 if __name__ == '__main__':
     obj=DataIngestion()
     obj.initiate_data_ingestion()
+    
 
 
     
