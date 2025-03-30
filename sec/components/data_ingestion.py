@@ -11,9 +11,9 @@ from dataclasses import dataclass
 class DataIngestionConfig:
     def __init__(self):
         self.artifacts_dir = "artifacts"
-        self.train_data_path = os.path.join(self.artifacts_dir, "train.csv")
-        self.test_data_path = os.path.join(self.artifacts_dir, "test.csv")
-        self.raw_data_path = os.path.join(self.artifacts_dir, "raw.csv")
+        self.train_data_path: str=os.path.join(self.artifacts_dir, "train.csv")
+        self.test_data_path: str=os.path.join(self.artifacts_dir, "test.csv")
+        self.raw_data_path: str=os.path.join(self.artifacts_dir, "raw.csv")
 
 class DataIngestion:
     def __init__(self):
@@ -21,7 +21,7 @@ class DataIngestion:
     def initiate_data_ingestion(self):
         logging.info("Entered the data ingestion method or component")
         try:
-            df = pd.read_csv('/Users/sashwotkoirala/Desktop/MDS/Prep/ML/mlProjects/notebook/dataVII.csv')
+            df = pd.read_csv('notebook/dataVII.csv')
             df = df.drop(index=df.index[0]).reset_index(drop=True)  # Dropping the first row (assuming it's unwanted)
             logging.info("Dataset read successfully.")
 
